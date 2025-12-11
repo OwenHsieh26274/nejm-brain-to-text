@@ -90,7 +90,7 @@ def update_ngram_params(
 
 # function for initializing the OPT model and tokenizer
 def build_opt(
-        model_name='facebook/opt-6.7b',
+        model_name="microsoft/phi-3-mini-4k-instruct",
         cache_dir=None,
         device='cuda' if torch.cuda.is_available() else 'cpu',
     ):
@@ -107,6 +107,7 @@ def build_opt(
         model_name,
         cache_dir=cache_dir,
         torch_dtype=torch.float16,
+        trust_remote_code=True
     )
 
     if device != 'cpu':
